@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark mode as default */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Neon cyan accent */
+    --primary: 180 100% 34%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 180 100% 50%;
+    
+    /* Soft yellow secondary */
+    --secondary: 48 95% 69%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 180 100% 34%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Income green */
+    --success: 122 39% 49%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Expense red */
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 180 100% 34%;
+    --radius: 1rem;
+    
+    /* Chart colors - neon themed */
+    --chart-1: 180 100% 50%;
+    --chart-2: 330 100% 60%;
+    --chart-3: 39 100% 60%;
+    --chart-4: 150 100% 50%;
+    --chart-5: 280 100% 65%;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 180 100% 34%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 180 100% 34%;
+    
+    /* Gradient backgrounds */
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 34%), hsl(180 100% 50%));
+    --gradient-success: linear-gradient(135deg, hsl(122 39% 49%), hsl(142 76% 60%));
+    --gradient-destructive: linear-gradient(135deg, hsl(0 72% 60%), hsl(15 85% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(48 95% 69%), hsl(39 100% 60%));
+    
+    /* Glow effects */
+    --glow-primary: 0 0 20px hsl(180 100% 50% / 0.5);
+    --glow-success: 0 0 20px hsl(122 39% 49% / 0.4);
+    --glow-destructive: 0 0 20px hsl(0 72% 60% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Make the calendar picker icon visible on dark backgrounds */
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(70%) sepia(80%) saturate(1000%) hue-rotate(180deg);
+  }
+}
+
+@layer utilities {
+  .card-glow {
+    box-shadow: 0 8px 32px rgba(0, 173, 181, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .card-glow:hover {
+    box-shadow: 0 12px 48px rgba(0, 173, 181, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .neon-border {
+    border: 1px solid hsl(var(--primary) / 0.3);
+  }
+  
+  .glass-effect {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
