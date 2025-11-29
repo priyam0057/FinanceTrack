@@ -13,10 +13,6 @@ dist-ssr
 dist-electron
 *.local
 
-# Environment files
-.env
-.env.*
-
 # Supabase local artifacts
 supabase/.temp/
 
