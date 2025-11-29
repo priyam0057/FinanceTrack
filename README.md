@@ -23,9 +23,9 @@
 ## Screenshots
 > Place these files inside `public/screenshots/` and keep the same names.
 
-![Dashboard](public/screenshots/dashboard.png)
-![Calculator & Add Transaction](public/screenshots/calculator_add_transaction.png)
-![Budget Management](public/screenshots/budget_management.png)
+![Dashboard](public/screenshots/dashboard.svg)
+![Calculator & Add Transaction](public/screenshots/calculator_add_transaction.svg)
+![Budget Management](public/screenshots/budget_management.svg)
 
 ## Core Features
 - Interactive dashboard showing balance, expenses, and income together.
@@ -104,4 +104,3 @@
 
 ---
 Built with care by Priyam Tagadiya. Contributions are appreciated.
-
