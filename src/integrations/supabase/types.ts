@@ -166,6 +166,8 @@ export type Database = {
           start_of_week: number | null
           timezone: string
           updated_at: string
+          email_recipient: string | null
+          daily_report_enabled: boolean | null
         }
         Insert: {
           created_at?: string
@@ -175,6 +177,8 @@ export type Database = {
           start_of_week?: number | null
           timezone?: string
           updated_at?: string
+          email_recipient?: string | null
+          daily_report_enabled?: boolean | null
         }
         Update: {
           created_at?: string
@@ -184,6 +188,8 @@ export type Database = {
           start_of_week?: number | null
           timezone?: string
           updated_at?: string
+          email_recipient?: string | null
+          daily_report_enabled?: boolean | null
         }
         Relationships: []
       }
@@ -292,6 +298,75 @@ export type Database = {
             referencedColumns: ["id"]
           }
         ]
+      }
+      project_diagrams: {
+        Row: {
+          id: string
+          project_id: string
+          diagram_type: string
+          name: string
+          nodes: Json
+          edges: Json
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          project_id: string
+          diagram_type: string
+          name?: string
+          nodes?: Json
+          edges?: Json
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          project_id?: string
+          diagram_type?: string
+          name?: string
+          nodes?: Json
+          edges?: Json
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      env_config: {
+        Row: {
+          id: string
+          project_id: string
+          name: string
+          development: string | null
+          staging: string | null
+          production: string | null
+          is_secret: boolean | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          project_id: string
+          name: string
+          development?: string | null
+          staging?: string | null
+          production?: string | null
+          is_secret?: boolean | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          project_id?: string
+          name?: string
+          development?: string | null
+          staging?: string | null
+          production?: string | null
+          is_secret?: boolean | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
     }
     Views: {

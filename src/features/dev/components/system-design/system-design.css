@@ -1,0 +1,342 @@
+/* System Design Visual Styles */
+
+/* Grid background pattern */
+.system-design-container {
+  background-color: hsl(var(--background));
+  background-image: 
+    radial-gradient(circle, hsl(var(--muted-foreground) / 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 400px;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+  padding: 2rem;
+  position: relative;
+}
+
+/* Diagram container */
+.diagram-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Node base styles */
+.diagram-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  border: 2px solid;
+  background: hsl(var(--card));
+  box-shadow: 0 4px 12px hsl(var(--foreground) / 0.05);
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.diagram-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsl(var(--foreground) / 0.1);
+}
+
+.diagram-node-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+}
+
+.diagram-node-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  color: hsl(var(--foreground));
+}
+
+.diagram-node-sublabel {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  margin-top: 0.25rem;
+}
+
+/* Node type variants */
+.node-client {
+  border-color: hsl(210 100% 50% / 0.5);
+  background: linear-gradient(135deg, hsl(210 100% 97%), hsl(210 100% 95%));
+}
+
+.node-client .diagram-node-icon {
+  color: hsl(210 100% 50%);
+}
+
+.node-server {
+  border-color: hsl(160 60% 45% / 0.5);
+  background: linear-gradient(135deg, hsl(160 60% 97%), hsl(160 60% 94%));
+}
+
+.node-server .diagram-node-icon {
+  color: hsl(160 60% 40%);
+}
+
+.node-database {
+  border-color: hsl(270 60% 55% / 0.5);
+  background: linear-gradient(135deg, hsl(270 60% 97%), hsl(270 60% 94%));
+}
+
+.node-database .diagram-node-icon {
+  color: hsl(270 60% 50%);
+}
+
+.node-service {
+  border-color: hsl(35 90% 55% / 0.5);
+  background: linear-gradient(135deg, hsl(35 90% 97%), hsl(35 90% 94%));
+}
+
+.node-service .diagram-node-icon {
+  color: hsl(35 90% 45%);
+}
+
+.node-external {
+  border-color: hsl(340 70% 55% / 0.5);
+  background: linear-gradient(135deg, hsl(340 70% 97%), hsl(340 70% 94%));
+}
+
+.node-external .diagram-node-icon {
+  color: hsl(340 70% 50%);
+}
+
+/* Connector arrows */
+.connector-line {
+  stroke: hsl(var(--muted-foreground) / 0.4);
+  stroke-width: 2;
+  fill: none;
+}
+
+.connector-arrow {
+  fill: hsl(var(--muted-foreground) / 0.6);
+}
+
+/* Flow animation */
+.flow-animated {
+  stroke-dasharray: 8 4;
+  animation: flowAnimation 1.5s linear infinite;
+}
+
+@keyframes flowAnimation {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Architecture diagram layout */
+.architecture-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.architecture-layer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.layer-label {
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Database diagram styles */
+.database-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.db-tables-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.db-table {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px hsl(var(--foreground) / 0.04);
+}
+
+.db-table-header {
+  background: linear-gradient(135deg, hsl(270 60% 97%), hsl(270 60% 94%));
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.db-table-icon {
+  width: 16px;
+  height: 16px;
+  color: hsl(270 60% 50%);
+}
+
+.db-table-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+}
+
+.db-table-fields {
+  padding: 0.5rem 0;
+}
+
+.db-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  font-size: 0.8rem;
+}
+
+.db-field:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+.db-field-key {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.db-field-key.pk {
+  color: hsl(45 90% 50%);
+}
+
+.db-field-key.fk {
+  color: hsl(200 80% 50%);
+}
+
+.db-field-name {
+  font-family: ui-monospace, monospace;
+  color: hsl(var(--foreground));
+}
+
+.db-field-type {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: hsl(var(--muted-foreground));
+  font-family: ui-monospace, monospace;
+}
+
+/* Relationship lines container */
+.db-relationships {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: hsl(var(--muted) / 0.3);
+  border-radius: 8px;
+}
+
+.relationship-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0;
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.relationship-arrow {
+  color: hsl(200 80% 50%);
+}
+
+/* Section title */
+.diagram-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.diagram-section-title svg {
+  width: 20px;
+  height: 20px;
+  color: hsl(var(--primary));
+}
+
+/* Tab navigation within system design */
+.system-design-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid hsl(var(--border));
+  padding-bottom: 0.5rem;
+}
+
+.system-design-tab {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: hsl(var(--muted-foreground));
+  background: transparent;
+  border: none;
+}
+
+.system-design-tab:hover {
+  background: hsl(var(--muted) / 0.5);
+  color: hsl(var(--foreground));
+}
+
+.system-design-tab.active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* Dark mode support */
+.dark .node-client {
+  background: linear-gradient(135deg, hsl(210 50% 15%), hsl(210 50% 12%));
+}
+
+.dark .node-server {
+  background: linear-gradient(135deg, hsl(160 40% 15%), hsl(160 40% 12%));
+}
+
+.dark .node-database {
+  background: linear-gradient(135deg, hsl(270 40% 15%), hsl(270 40% 12%));
+}
+
+.dark .node-service {
+  background: linear-gradient(135deg, hsl(35 50% 15%), hsl(35 50% 12%));
+}
+
+.dark .node-external {
+  background: linear-gradient(135deg, hsl(340 40% 15%), hsl(340 40% 12%));
+}
+
+.dark .db-table-header {
+  background: linear-gradient(135deg, hsl(270 30% 18%), hsl(270 30% 15%));
+}
