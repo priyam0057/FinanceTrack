@@ -20,12 +20,15 @@
 - I am Priyam Tagadiya — happy to welcome your contributions!
 - Connect on LinkedIn: https://tinyurl.com/57puhd8m
 
+##Note
+- Without Supabase Setup and connection .env this project not start please first setup Supabase ...
+
 ## Screenshots
 > Place these files inside `public/screenshots/` and keep the same names.
 
-![Dashboard](public/screenshots/dashboard.svg)
-![Calculator & Add Transaction](public/screenshots/calculator_add_transaction.svg)
-![Budget Management](public/screenshots/budget_management.svg)
+![Dashboard](public/screenshots/dashboard.png)
+![Calculator & Add Transaction](public/screenshots/calculator_add_transaction.png)
+![Budget Management](public/screenshots/budget_management.png)
 
 ## Core Features
 - Interactive dashboard showing balance, expenses, and income together.
